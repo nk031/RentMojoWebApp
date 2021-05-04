@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model RentMojoWebApp.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">@Model.Name Details</h1>
+<div class="row">
+    <div class="col-4">
+        <div class="card h-100 border-primary">
+            <img src="~/images/products/@Model.ProductID@Model.Extension" alt="" style="width:100%">
+        </div>
+    </div>
+    <div class="col-8">
+        
+        <h2>Shipping: @Model.TagLine</h2>
+        <h2>Deposit: $ @Model.Deposit</h2>
+        <h2>Monthly Rent: $ @Model.MonthlyRent</h2>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a class="btn btn-success text-center" asp-action="ProcessCheckOut" asp-route-id="@Model.ProductID">Checkout</a>
+        }
+        else
+        {
+            <p class="heading-font">Please Login. For Placing Order.</p> 
+        }
+    </div>
+</div>
+

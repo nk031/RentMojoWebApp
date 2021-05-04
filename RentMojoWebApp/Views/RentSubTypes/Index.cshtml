@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RentMojoWebApp.Models.RentSubType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">All Rent Sub Types</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Rent Sub Type</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Cover Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTypeName)
+            </th>
+            <th>
+                Rent Type
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody> 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/subtypes/@item.SubTypeID@item.Extension" class="img-fluid" width="50%" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentType.TypeName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SubTypeID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SubTypeID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SubTypeID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

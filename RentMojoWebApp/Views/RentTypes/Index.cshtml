@@ -1,0 +1,42 @@
+﻿@model IEnumerable<RentMojoWebApp.Models.RentType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">All Rent Types</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Rent</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Cover Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr> 
+                <td>
+                    <img src="~/images/types/@item.TypeID@item.Extension" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TypeID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TypeID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TypeID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

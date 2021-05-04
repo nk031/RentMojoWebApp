@@ -1,0 +1,40 @@
+﻿@model RentMojoWebApp.Models.RentSubType
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Rent Sub Type Details</h1>
+
+<h4>RentSubType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SubTypeID" />
+            <input type="hidden" asp-for="Extension" class="form-control" />
+            <div class="form-group">
+                <label asp-for="SubTypeName" class="control-label"></label>
+                <input asp-for="SubTypeName" class="form-control" />
+                <span asp-validation-for="SubTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeID" class="control-label"></label>
+                <select asp-for="TypeID" class="form-control" asp-items="ViewBag.TypeID"></select>
+                <span asp-validation-for="TypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group"> 
+                <input type="submit" value="Update Rent Sub Type Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Rent Sub Types</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

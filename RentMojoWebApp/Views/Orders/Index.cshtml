@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RentMojoWebApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">All Order History</h1>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deposit) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthlyRent)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deposit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyRent)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.OrderID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

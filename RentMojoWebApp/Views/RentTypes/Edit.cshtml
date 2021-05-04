@@ -1,0 +1,35 @@
+﻿@model RentMojoWebApp.Models.RentType
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Rent Type Details</h1>
+
+<h4>RentType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TypeID" />
+            <div class="form-group">
+                <label asp-for="TypeName" class="control-label"></label>
+                <input asp-for="TypeName" class="form-control" />
+                <span asp-validation-for="TypeName" class="text-danger"></span>
+                <input type="hidden" asp-for="Extension" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Rent Type Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div> 
+    <a asp-action="Index">View All Rent Types</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
