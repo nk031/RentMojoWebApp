@@ -10,7 +10,7 @@ namespace RentMojoWebApp.Models
     public class SingleFileUpload
     {
         [Required]
-        [Display(Name = "File")]
+        [Display(Name = "File")]//this code will pick image from folder
         public IFormFile FormFile { get; set; }
     }
 }

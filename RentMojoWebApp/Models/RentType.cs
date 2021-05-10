@@ -14,7 +14,7 @@ namespace RentMojoWebApp.Models
 
         [Required]
         [StringLength(100)]
-        [Display(Name = "Type Name")]
+        [Display(Name = "Type Name")]//this code will show product name
         public string TypeName { get; set; }
          
         [Required]
@@ -22,7 +22,7 @@ namespace RentMojoWebApp.Models
         public string Extension { get; set; }
 
         [NotMapped]
-        public SingleFileUpload File { get; set; }//upload image
+        public SingleFileUpload File { get; set; }//code for upload image
 
         public virtual ICollection<RentSubType> RentSubTypes { get; set; }
     }

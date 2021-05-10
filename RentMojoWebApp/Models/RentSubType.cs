@@ -15,14 +15,14 @@ namespace RentMojoWebApp.Models
         [Required]
         [StringLength(100)]
         [Display(Name = "Sub Type Name")] 
-        public string SubTypeName { get; set; }
+        public string SubTypeName { get; set; } //this code will show Sub name
 
         [Required]
         [StringLength(20)]
-        public string Extension { get; set; }
+        public string Extension { get; set; }//this code will show extention
 
         [NotMapped]
-        public SingleFileUpload File { get; set; }
+        public SingleFileUpload File { get; set; }//this code will add image
 
         [Required]
         public int TypeID { get; set; }
