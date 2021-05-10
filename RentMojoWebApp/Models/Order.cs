@@ -10,7 +10,7 @@ namespace RentMojoWebApp.Models
     public class Order
     {
         [Key]
-        public int OrderID { get; set; }
+        public int OrderID { get; set; }//primary key created
 
         [Required]
         [StringLength(1000)]
@@ -36,7 +36,7 @@ namespace RentMojoWebApp.Models
         [Required]
         public int ProductID { get; set; }
 
-        [ForeignKey("ProductID")]
+        [ForeignKey("ProductID")]//used foreign key from other class
         [InverseProperty("Orders")]
         public Product Product { get; set; }
 

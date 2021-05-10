@@ -37,7 +37,7 @@ namespace RentMojoWebApp.Models
         [Required]
         public int SubTypeID { get; set; }
 
-        [ForeignKey("SubTypeID")]//foreign key
+        [ForeignKey("SubTypeID")]//used foreign key
         [InverseProperty("Products")]
         public virtual RentSubType RentSubType { get; set; }
 

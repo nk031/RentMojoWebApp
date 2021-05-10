@@ -10,7 +10,7 @@ namespace RentMojoWebApp.Models
     public class RentType
     {
         [Key]
-        public int TypeID { get; set; }
+        public int TypeID { get; set; }//primary key
 
         [Required]
         [StringLength(100)]
@@ -22,7 +22,7 @@ namespace RentMojoWebApp.Models
         public string Extension { get; set; }
 
         [NotMapped]
-        public SingleFileUpload File { get; set; }
+        public SingleFileUpload File { get; set; }//upload image
 
         public virtual ICollection<RentSubType> RentSubTypes { get; set; }
     }
