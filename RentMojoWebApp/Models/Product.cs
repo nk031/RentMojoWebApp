@@ -10,7 +10,7 @@ namespace RentMojoWebApp.Models
     public class Product
     {
         [Key]
-        public int ProductID { get; set; }
+        public int ProductID { get; set; }//primary key
 
         [Required]
         [StringLength(200)]
@@ -37,7 +37,7 @@ namespace RentMojoWebApp.Models
         [Required]
         public int SubTypeID { get; set; }
 
-        [ForeignKey("SubTypeID")]
+        [ForeignKey("SubTypeID")]//foreign key
         [InverseProperty("Products")]
         public virtual RentSubType RentSubType { get; set; }
 
